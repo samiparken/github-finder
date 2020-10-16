@@ -2,13 +2,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-//function
+//function, passing props
 const Navbar = ({ icon, title }) => {
   return (
     <nav className='navbar bg-primary'>
       <h1>
         <i className={icon} /> {title}
-        {/*Passing props */}
       </h1>
     </nav>
   );

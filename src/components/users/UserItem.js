@@ -22,6 +22,7 @@ const UserItem = ({ user: { login, avatar_url, html_url } }) => {
   );
 };
 
+// Define Prop Types
 UserItem.propTypes = {
   user: PropTypes.object.isRequired,
 };

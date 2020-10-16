@@ -5,18 +5,20 @@ import axios from "axios";
 import "./App.css";
 
 class App extends Component {
+  // Declare state
   state = {
     users: [],
     loading: false,
   };
 
-  // getting data & save into state
+  // Getting data & save into state
   async componentDidMount() {
     this.setState({ loading: true });
     const res = await axios.get("https://api.github.com/users");
     this.setState({ users: res.data, loading: false });
   }
 
+  // Rendering components
   render() {
     return (
       <div className='App'>
