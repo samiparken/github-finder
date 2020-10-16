@@ -5,10 +5,16 @@ import axios from "axios";
 import "./App.css";
 
 class App extends Component {
-  async componentDidMount() {
-    const res = await axios.get("https://api.github.com/users");
+  state = {
+    users: [],
+    loading: false,
+  };
 
-    console.log(res.data);
+  // getting data & save into state
+  async componentDidMount() {
+    this.setState({ loading: true });
+    const res = await axios.get("https://api.github.com/users");
+    this.setState({ users: res.data, loading: false });
   }
 
   render() {
@@ -16,7 +22,7 @@ class App extends Component {
       <div className='App'>
         <Navbar title='Github Finder' icon='fab fa-github' />
         <div className='container'>
-          <Users />
+          <Users loading={this.state.loading} users={this.state.users} />
         </div>
       </div>
     );
