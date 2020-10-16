@@ -11,6 +11,7 @@ class App extends Component {
     const foo = () => "Bar";
     const loading = false;
     const showName = true;
+    const numbers = [1, 2, 3, 4];
 
     // if (loading) {
     //   return <h4>Loading...</h4>;
@@ -18,7 +19,8 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <Navbar title='Github Finder' icon='fab fa-github' />{" "}
+        <Navbar title='Github Finder' icon='fab fa-github' />
+        <Navbar title={numbers} />
         {/*other Component*/}
         <h1>My First Page</h1>
         {loading ? <h4>Loading...</h4> : <h4> DONE! </h4>}

@@ -1,10 +1,18 @@
 // Under Global CSS
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export class NavBar extends Component {
+  // Default Props
   static defaultProps = {
-    title: "Github Finder",
+    title: "Github Finder",s
     icon: "fab fa-github",
+  };
+
+  // Define Prop Types
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
   };
 
   render() {
