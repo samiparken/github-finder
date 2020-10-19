@@ -2,11 +2,26 @@ import React, { Component } from "react";
 
 //Component
 export class Search extends Component {
+  state = {
+    text: "",
+  };
+
+  // Change a value of state
+  onChange = (e) => {
+    this.setState({ text: e.target.value });
+  };
+
   render() {
     return (
       <div>
         <form className='form'>
-          <input type='text' name='text' placeholder='Search Users...' />
+          <input
+            type='text'
+            name='text'
+            placeholder='Search Users...'
+            value={this.state.text}
+            onChange={this.onChange}
+          />
           <input
             type='submit'
             value='Search'
