@@ -6,21 +6,25 @@ export class Search extends Component {
     text: "",
   };
 
-  // Change a value of state
-  onChange = (e) => {
-    this.setState({ text: e.target.value });
+  // Submit btn pressed
+  onSubmit = (e) => {
+    e.proventDefault();
+    console.log(this.state.text);
   };
+
+  // Change a value of state (To take 'text' in the search bar)
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     return (
       <div>
-        <form className='form'>
+        <form onSubmit={this.onSubmit.bind(this)} className='form'>
           <input
             type='text'
             name='text'
             placeholder='Search Users...'
             value={this.state.text}
-            onChange={this.onChange}
+            onChange={this.onChange} // typing text
           />
           <input
             type='submit'

@@ -12,7 +12,7 @@ class App extends Component {
     loading: false,
   };
 
-  // Getting data & save into state
+  // Getting data by using API & Save into state
   async componentDidMount() {
     this.setState({ loading: true });
     const res = await axios.get(

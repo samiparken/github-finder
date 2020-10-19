@@ -19,7 +19,7 @@ const Users = ({ users, loading }) => {
 };
 
 //Define Prop Types
-UserItem.propTypes = {
+Users.propTypes = {
   users: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
 };
