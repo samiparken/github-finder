@@ -37,7 +37,7 @@ export class User extends Component {
     const { loading } = this.props;
     if (loading) return <Spinner />;
 
-    // Show
+    // Show User Info
     return (
       <Fragment>
         <Link to='/' className='btn btn-light'>
@@ -67,6 +67,9 @@ export class User extends Component {
                 <p>{bio}</p>
               </Fragment>
             )}
+            <a href={html_url} className='btn btn-dark my-1'>
+              Visit Github Profile
+            </a>
           </div>
         </div>
       </Fragment>
