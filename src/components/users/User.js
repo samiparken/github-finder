@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from "react";
 import Spinner from "../layout/Spinner";
+import Repos from "../repos/Repos";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -7,13 +8,16 @@ export class User extends Component {
   // Lifecycle function
   componentDidMount() {
     this.props.getUser(this.props.match.params.login);
+    this.props.getUserRepos(this.props.match.params.login);
   }
 
   // Prop Types
   static propTypes = {
     loading: PropTypes.bool,
     user: PropTypes.object.isRequired,
+    repos: PropTypes.array.isRequired,
     getUser: PropTypes.func.isRequired,
+    getUserRepos: PropTypes.func.isRequired,
   };
 
   render() {
@@ -35,7 +39,7 @@ export class User extends Component {
     } = this.props.user;
 
     // Spinner gif when loading
-    const { loading } = this.props;
+    const { loading, repos } = this.props;
     if (loading) return <Spinner />;
 
     // Show User Info
@@ -107,6 +111,7 @@ export class User extends Component {
           <div className='badge badge-dark'>Public Repos: {public_repos}</div>
           <div className='badge badge-light'>Public Gists: {public_gists}</div>
         </div>
+        <Repos repos={repos} />
       </Fragment>
     );
   }
