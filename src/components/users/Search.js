@@ -12,17 +12,18 @@ export class Search extends Component {
     searchUsers: PropTypes.func.isRequired,
   };
 
-  // Submit btn pressed
-  onSubmit = (e) => {
-    e.proventDefault();
-    console.log(this.state.text);
-    this.props.searchUsers(this.state.text);
-    this.setState({ text: "" });
-  };
-
   // Change a value of state (To take 'text' in the search bar)
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state.text);
+    this.setState({ text: e.target.value });
+  };
+
+  // Submit btn pressed
+  onSubmit = (e) => {
+    console.log(this.state.text);
+    e.preventDefault();
+    this.props.searchUsers(this.state.text); // "Prop is called" (Prop Up)
+    this.setState({ text: "" });
   };
 
   render() {
