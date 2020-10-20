@@ -9,6 +9,7 @@ const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
+    // below comment for not showing dependency warning
     // eslint-disable-next-line
   }, []); //To stop infinite requests
 

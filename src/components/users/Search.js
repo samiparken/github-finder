@@ -2,7 +2,7 @@ import React, { useState } from "react"; // Add 'useState' Hook
 import PropTypes from "prop-types";
 
 //Functional Component
-const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
+const Search = ({ searchUsers, showUsers, clearUsers, setAlert }) => {
   const [text, setText] = useState(""); //useState Hook
 
   // Change a value of state (To take 'text' in the search bar)
@@ -40,7 +40,7 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
         />
       </form>
       {/* Button activates only when it can be clear */}
-      {showClear && (
+      {clearUsers && (
         <button
           className='btn btn-light btn-block'
           onClick={clearUsers} // Prop Up
