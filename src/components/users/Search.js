@@ -12,6 +12,7 @@ export class Search extends Component {
     searchUsers: PropTypes.func.isRequired,
     clearUsers: PropTypes.func.isRequired,
     showUsers: PropTypes.bool.isRequired,
+    setAlert: PropTypes.func.isRequired,
   };
 
   // Change a value of state (To take 'text' in the search bar)
@@ -24,8 +25,12 @@ export class Search extends Component {
   onSubmit = (e) => {
     console.log(this.state.text);
     e.preventDefault();
-    this.props.searchUsers(this.state.text); // "Prop is called" (Prop Up)
-    this.setState({ text: "" });
+    if (this.state.text === "") {
+      this.props.setAlert("Please enter something", "light");
+    } else {
+      this.props.searchUsers(this.state.text); // "Prop is called" (Prop Up)
+      this.setState({ text: "" });
+    }
   };
 
   render() {
