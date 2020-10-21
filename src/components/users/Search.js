@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react"; // Add 'useState', 'useContext' Hook
-import PropTypes from "prop-types";
 import GithubContext from "../../context/github/githubContext";
+import AlertContext from "../../context/alert/alertContext";
 
 //Functional Component
-const Search = ({ setAlert }) => {
+const Search = () => {
   const githubContext = useContext(GithubContext);
+  const alertContext = useContext(AlertContext);
 
   const [text, setText] = useState(""); //useState Hook
 
@@ -19,9 +20,9 @@ const Search = ({ setAlert }) => {
     console.log(text);
     e.preventDefault();
     if (text === "") {
-      setAlert("Please enter something", "light");
+      alertContext.setAlert("Please enter something", "light"); //context
     } else {
-      githubContext.searchUsers(text); // "Prop is called" (Prop Up)
+      githubContext.searchUsers(text); //context
       setText("");
     }
   };
@@ -53,11 +54,6 @@ const Search = ({ setAlert }) => {
       )}
     </div>
   );
-};
-
-//Prop types
-Search.propTypes = {
-  setAlert: PropTypes.func.isRequired,
 };
 
 export default Search;
