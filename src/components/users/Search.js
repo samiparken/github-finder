@@ -2,7 +2,7 @@ import React, { useState } from "react"; // Add 'useState' Hook
 import PropTypes from "prop-types";
 
 //Functional Component
-const Search = ({ searchUsers, showUsers, clearUsers, setAlert }) => {
+const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
   const [text, setText] = useState(""); //useState Hook
 
   // Change a value of state (To take 'text' in the search bar)
@@ -56,7 +56,7 @@ const Search = ({ searchUsers, showUsers, clearUsers, setAlert }) => {
 Search.propTypes = {
   searchUsers: PropTypes.func.isRequired,
   clearUsers: PropTypes.func.isRequired,
-  showUsers: PropTypes.bool.isRequired,
+  showClear: PropTypes.bool.isRequired,
   setAlert: PropTypes.func.isRequired,
 };
 
