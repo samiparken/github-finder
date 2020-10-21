@@ -1,7 +1,9 @@
 import React, { useReducer } from "react";
-import axios from "axios";
 import GithubContext from "./githubContext";
 import GithubReducer from "./githubReducer";
+import axios from "axios"; // for async
+
+// States
 import {
   SEARCH_USERS,
   SET_LOADING,
@@ -11,6 +13,7 @@ import {
 } from "../types";
 
 const GithubState = (props) => {
+  // Initial values
   const initialState = {
     users: [],
     user: {},
@@ -18,10 +21,10 @@ const GithubState = (props) => {
     loading: false,
   };
 
+  // Initialize Reducer
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
-  // Search Users
-  // Getting data by using API & Save into state
+  // 1. Search Users, Getting data by using API & Save into state
   const searchUsers = async (text) => {
     console.log(text);
     setLoading();
@@ -34,8 +37,7 @@ const GithubState = (props) => {
     });
   };
 
-  // Get User
-  // Get single Github user data
+  // 2. Get User, Get single Github user data
   const getUser = async (username) => {
     console.log(username);
     setLoading();
@@ -47,8 +49,7 @@ const GithubState = (props) => {
       payload: res.data,
     });
   };
-  // Get Repos
-  // Get Users Repos
+  // 3. Get Repos, Get Users Repos
   const getUserRepos = async (username) => {
     console.log(username);
     setLoading();
@@ -61,12 +62,13 @@ const GithubState = (props) => {
     });
   };
 
-  // Clear Users from state
+  // 4. Clear Users from state
   const clearUsers = () => dispatch({ type: CLEAR_USERS });
 
-  // Set Loading
+  // 5. Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
+  // values & methods
   return (
     <GithubContext.Provider
       value={{
@@ -75,9 +77,10 @@ const GithubState = (props) => {
         repos: state.repos,
         loading: state.loading,
         searchUsers,
-        clearUsers,
         getUser,
         getUserRepos,
+        clearUsers,
+        //setLoading,
       }}
     >
       {props.children}

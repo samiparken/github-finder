@@ -1,5 +1,5 @@
-import React, { Fragment } from "react"; // useState, useEffect Hook
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"; // for organizing pages with address
 import Navbar from "./components/layout/Navbar";
 import Alert from "./components/layout/Alert";
 import Search from "./components/users/Search";
@@ -28,7 +28,6 @@ const App = () => {
                   path='/'
                   render={(props) => (
                     <Fragment>
-                      {/* Prop Up from Search.js */}
                       <Search />
                       <Users />
                     </Fragment>
