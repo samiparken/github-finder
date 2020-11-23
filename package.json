@@ -32,5 +32,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "from Udemy Lecture: React Front To Back",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samiparken/github-finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samiparken/github-finder/issues"
+  },
+  "homepage": "https://github.com/samiparken/github-finder#readme"
 }
